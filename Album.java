@@ -5,5 +5,9 @@ public class Album {
     private Data releaseDate;
     private boolean isAvailable;
 
+    @Override
+    public boolean equals(Object obj) { }
 
+    @Override
+    public String toString() { }
 }
