@@ -8,5 +8,7 @@ public class Date implements Comparable<Date> {
     public boolean isValid() {}
 
     @Override
-    public int compareTo(Date date) {}
+    public int compareTo(Date date) {
+
+    }
 }
