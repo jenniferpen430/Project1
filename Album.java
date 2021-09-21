@@ -8,9 +8,9 @@ public class Album {
     //
     public Album(String name, String date) {
         title = "";
-        this.artist = artist;
-        checkOut = false;
-        releaseDate = new Date(date);
+        this.artist = name;
+
+        this.releaseDate = new Date(date);
     }
 
     //
@@ -35,20 +35,17 @@ public class Album {
 
     //
     @Override
-    public boolean equals(Object obj) {
-        if(obj instanceof Album){
-            Album album = (Album) obj;
+    public boolean equals(Album obj) {
             return album.title.equals(this.title) && album.artist.equal(this.artist);
-        }
     }
 
     @Override
     public String toString() {
         if(isAvailable){
-            return
+            return this.title + "::" + this.artist + "::" + this.genre + ":: is available";
         }
         else{
-            return
+            return this.title + "::" + this.artist + "::" + this.genre + ":: is not available";
         }
     }
 }
