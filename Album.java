@@ -8,11 +8,10 @@ public class Album {
     public enum Genre{ Classical, Country, Jazz, Pop, Unknown};
 
     //
-    public Album(String title, String artist, String genre, String releaseData) {
-        this.title = title;
+    public Album(String name, String date) {
+        title = "";
         this.artist = name;
-        this.genre = genre;
-        isAvailable = false;
+
         this.releaseDate = new Date(date);
     }
 
@@ -30,7 +29,7 @@ public class Album {
     public Genre getGenre() {
         return genre;
     }
-    //
+
     public void setIsAvailable(boolean isAvailable) {
         this.isAvailable = isAvailable;
     }
