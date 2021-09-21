@@ -9,9 +9,10 @@ public class Collection {
                 return c;
             }
         }
+        throw new IllegalArgumentException("NOT_FOUND");
         //aren't we supposed to return an int, how do we return not_found
         //this 0 is a placeholder
-        return 0;
+        return -1;
     } //find the album index, or return NOT_FOUND
 
     private void grow() {
@@ -72,11 +73,11 @@ public class Collection {
     }
 
     public boolean lendingOut(Album album) {
-        album.isAvailable = 0;
+        album.setIsAvailable(false);
     } //set to not available
 
     public boolean returnAlbum(Album album) {
-        album.isAvailable = 1;
+        album.setIsAvailable(true);
     } //set to available
 
     public void print() {
@@ -85,10 +86,37 @@ public class Collection {
         }
     } //display the list without specifying the order
 
-    public void printByReleaseDate() {
+    public static void sortByDate(Album[] albums){
+        //Selection Sort algorithm
+        int albumsLength = albums.length;
+        for( int i = 0; i < albumsLength; i++ ){
+            int min = i;
+            for(int j = i+1; j<albumsLength; j++){
+                if( albums[i].getReleaseDate().compareTo(albums[j].getReleaseDate()) > 1 ){
+                    min = j;
+                }
+            }
+            swap(albums, i, min);
+        }
+    }
+    public static void swap(Album[] albums, int i, int j){
+        //Swap helper method for selection sort algorithm
+        Album temp = new Album();
+        temp = albums[i];
+        albums[i] = albums[j];
+        albums[j] = temp;
     }
 
+    public void printByReleaseDate() {
+        sortByDate(albums);
+        for( int c = 0; c < albums.length; c++){
+            System.out.println(albums[c].toString());
+        }
+    }
+
+
     public void printByGenre() {
+
     }
 
 }
