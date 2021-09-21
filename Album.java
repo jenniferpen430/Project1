@@ -13,6 +13,8 @@ public class Album {
         this.releaseDate = new Date(date);
     }
 
+
+
     //
     public String getTitle() {
         return title;
@@ -26,6 +28,10 @@ public class Album {
     //
     public Genre getGenre() {
         return genre;
+    }
+
+    public void setIsAvailable(boolean isAvailable) {
+        this.isAvailable = isAvailable;
     }
 
     //
