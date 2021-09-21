@@ -29,7 +29,7 @@ public class Album {
     public Genre getGenre() {
         return genre;
     }
-
+    //deez
     public void setIsAvailable(boolean isAvailable) {
         this.isAvailable = isAvailable;
     }
