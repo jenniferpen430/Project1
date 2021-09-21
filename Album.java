@@ -6,6 +6,7 @@ public class Album {
     private boolean isAvailable;
 
     public enum Genre{ Classical, Country, Jazz, Pop, Unknown};
+
     //
     public Album(String title, String artist, String genre, String releaseData) {
         this.title = title;
@@ -14,8 +15,6 @@ public class Album {
         isAvailable = false;
         this.releaseDate = new Date(date);
     }
-
-
 
     //
     public String getTitle() {
@@ -39,6 +38,10 @@ public class Album {
     //
     public boolean getIsAvailable() {
         return isAvailable;
+    }
+
+    public Data getReleaseDate() {
+        return releaseDate;
     }
 
     //

@@ -16,7 +16,7 @@ public class CollectionManager {
         collection = new Collection();
         while(!line.equals('Q')){
             if(line.equals('A')){
-
+                
             }
             else if(line.equals('D')){
 
