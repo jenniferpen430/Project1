@@ -9,5 +9,8 @@ public class Album {
     public boolean equals(Object obj) { }
 
     @Override
-    public String toString() { }
+    public String toString() {
+        String stringRepresentation = title + "::" + artist + "::" + genre + ;
+        return stringRepresentation;
+    }
 }
