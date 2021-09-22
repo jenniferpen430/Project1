@@ -72,14 +72,33 @@ public class Collection {
         return false;
     }
 
-    public boolean lendingOut(Album album) {
-        album.setIsAvailable(false);
+    public boolean isHere(Album album, Album[] albums){
+        boolean isHere = false;
+        for(int c = 0; c<albums.length; c++){
+            if(albums[c].equals(album)){
+                return true;
+            }
+        }
         return false;
+    }
+
+    public boolean lendingOut(Album album) {
+        if(isHere(album,albums) == true){
+            album.setIsAvailable(false);
+            return true;
+        }else{
+            return false;
+        }
     } //set to not available
 
     public boolean returnAlbum(Album album) {
-        album.setIsAvailable(true);
-        return true;
+        if(isHere(album,albums) == true){
+            album.setIsAvailable(true);
+            return true;
+        }else{
+            return false;
+        }
+
     } //set to available
 
     public void print() {
