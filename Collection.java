@@ -74,10 +74,12 @@ public class Collection {
 
     public boolean lendingOut(Album album) {
         album.setIsAvailable(false);
+        return false;
     } //set to not available
 
     public boolean returnAlbum(Album album) {
         album.setIsAvailable(true);
+        return true;
     } //set to available
 
     public void print() {
@@ -114,9 +116,25 @@ public class Collection {
         }
     }
 
+    public void sortByGenre(Album[] albums){
+        //Selection Sort algorithm
+        int albumsLength = albums.length;
+        for( int i = 0; i < albumsLength; i++ ){
+            int min = i;
+            for(int j = i+1; j<albumsLength; j++){
+                if( albums[i].getGenre().compareTo(albums[j].getGenre()) > 0 ){
+                    min = j;
+                }
+            }
+            swap(albums, i, min);
+        }
+    }
 
     public void printByGenre() {
-
+        sortByGenre(albums);
+        for( int c = 0; c < albums.length; c++){
+            System.out.println(albums[c].toString());
+        }
     }
 
 }
