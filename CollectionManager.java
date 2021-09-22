@@ -15,19 +15,55 @@ public class CollectionManager {
         String line  = scanner.nextLine();
         collection = new Collection();
         while(!line.equals('Q')){
-            if(line.equals('A')){
-                
+            StringTokenizer st = new StringTokenizer(line, "," , false);
+            String command = st.nextToken();
+
+            if(command.equals('A')){ //add
+                String title = st.nextToken();
+                String artist = st.nextToken();
+                String genre = st.nextToken();
+                String date = st.nextToken();
+
+                Album album = new Album(title,artist,genre, date);
+
+                if(album.getReleaseDate().isValid()){
+                    collection.add(album);
+                    System.out.println(album.toString() + " >> added.");
+                }
+                else{
+                    System.out.println("Invalid Date!")
+                }
             }
-            else if(line.equals('D')){
+            else if(command.equals('D')){ //remove
+                String title = st.nextToken();
+                String artist = st.nextToken();
+
+                Album album = new Album(title, artist);
+
+                if(collection.remove(album)){
+                    System.out.println(title + "::" + artist + " >> deleted.");
+                }
+                else {
+                    System.out.println(title + "::" + artist + " >> is not in the collection");
+                }
+            }
+            else if(command.equals('L')){
+                    String title = st.nextToken();
+                    String artist = st.nextToken();
+
+                    Album album = new Album(title, artist);
+                    if()
+            }
+            else if(command.equals('R')){
 
             }
-            else if(line.equals('L')){
+            else if(command.equals('P')){
 
             }
-            else if(line.equals('R')){
+            else if(command.equals('PD')){
 
             }
-            else if(line.equals('P')){
+            else if(command.equals('PG')){
 
             }
             else {
@@ -35,5 +71,6 @@ public class CollectionManager {
             }
 
         }
+        System.out.println("Collection Manager terminated");
     }
 }

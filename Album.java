@@ -10,10 +10,16 @@ public class Album {
     //note ay
     public Album(String title, String artist, Genre genre, String releaseData) {
         this.title = title;
-        this.artist = name;
+        this.artist = artist;
         this.genre = genre;
         isAvailable = false;
         this.releaseDate = new Date(date);
+    }
+
+    public Album(String title, String artist) {
+        this.title = title;
+        this.artist = artist;
+        isAvailable = false;
     }
 
     //

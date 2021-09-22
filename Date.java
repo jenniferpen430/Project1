@@ -10,7 +10,7 @@ public class Date implements Comparable<Date> {
 
     //test bed main
     public static void main(String[] args) {
-        Date date1 = new Date("09/19/2001");
+        Date date1 = new Date("9/19/2001");
         System.out.println("this date is " + date1.isValid());
 
         Date date2 = new Date("10/25/2022");
@@ -39,7 +39,7 @@ public class Date implements Comparable<Date> {
 
         this.day = today.get(Calendar.DAY_OF_MONTH);
         this.month = today.get(Calendar.MONTH) + MONTH_OFFSET;
-        this.year = today.get(Calendar.YEAR)
+        this.year = today.get(Calendar.YEAR);
     }
 
     public static final int JANUARY = 1;
@@ -63,7 +63,7 @@ public class Date implements Comparable<Date> {
     public static final int QUATERCENTENNIAL = 400;
     public static final int LEAP_DAYS = 29;
     public static final int NON_LEAP = 28;
-    public static final int DAY_MIN = 28;
+    public static final int DAY_MIN = 1;
 
     //checking if date is valid
     public boolean isValid() {
@@ -72,15 +72,19 @@ public class Date implements Comparable<Date> {
         if(year < YEAR_MIN || year > Calendar.getInstance().get(Calendar.YEAR) || (year == Calendar.getInstance().get(Calendar.YEAR) && month>Calendar.getInstance().get(Calendar.MONTH))
                 || (year==Calendar.getInstance().get(Calendar.YEAR) && month==Calendar.getInstance().get(Calendar.MONTH)
                 && day>Calendar.getInstance().get(Calendar.DAY_OF_MONTH))){
+            System.out.println("first if");
             return false;
         }
-        else if(month < JANUARY || month < DECEMBER || day < DAY_MIN){
+        else if(month < JANUARY || month > DECEMBER || day < DAY_MIN){
+            System.out.println("2 if");
             return false;
         }
         else if((month == JANUARY  || month == MARCH || month  == MAY || month  == JULY || month == AUGUST || month  == OCTOBER || month == DECEMBER) && day > DAY_MAX ){
+            System.out.println("3 if");
             return false;
         }
         else if((month == APRIL || month == JUNE || month == SEPETEMBER || month ==  NOVEMBER) && day > DAY_NORM){
+            System.out.println("4 if");
             return false;
         }
         else if (month == FEBRUARY) { //check leap year
@@ -116,20 +120,19 @@ public class Date implements Comparable<Date> {
         int GREATER = 1;
         int LESSTHAN = -1;
         int EQUAL = 0;
+
         // 09/19/1990 vs 09/18/1991 should return -1
         // 09/19/1991 vs 09/18/1990 should return 1
         // 09/19/1990 vs 08/18/1990 should return 1
-        if(year > date.getYear() || (year == date.getYear() && month > date.getMonth()) ||  ){
+        if(year > date.getYear() || (year == date.getYear() && month > date.getMonth()) || (year == date.getYear() && month == date.getMonth() && day > date.getDay())){
             return GREATER;
         }
-        else if(){
+        else if(year < date.getYear() || (year == date.getYear() && month < date.getMonth()) || (year == date.getYear() && month == date.getMonth() && day < date.getDay())){
             return LESSTHAN;
         }
         return EQUAL;
     }
 
-    //
-    @Overide
     public String toString(){
         return month + "/" + day + "/" + year;
     }
