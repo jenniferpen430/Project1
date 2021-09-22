@@ -19,6 +19,7 @@ public class CollectionManager {
             String command = st.nextToken();
 
             if(command.equals('A')){ //add
+                int NOT_FOUND = -1;
                 String title = st.nextToken();
                 String artist = st.nextToken();
                 String genre = st.nextToken();
@@ -26,7 +27,10 @@ public class CollectionManager {
 
                 Album album = new Album(title,artist,genre, date);
 
-                if(album.getReleaseDate().isValid()){
+                if(collection.find(album) == NOT_FOUND){
+                    System.out.println(title + "::" + artist + " >> is not in  the collection.");
+                }
+                else if(album.getReleaseDate().isValid()){
                     collection.add(album);
                     System.out.println(album.toString() + " >> added.");
                 }
@@ -47,29 +51,43 @@ public class CollectionManager {
                     System.out.println(title + "::" + artist + " >> is not in the collection");
                 }
             }
-            else if(command.equals('L')){
+            else if(command.equals('L')){ //lend
                     String title = st.nextToken();
                     String artist = st.nextToken();
 
                     Album album = new Album(title, artist);
-                    if()
+                    if(collection.lendingOut(album)){
+                        System.out.println(title + "::" + artist + " >> lending out and set to not avaible.");
+                    }
+                    else{
+                        System.out.println(title + ":" + artist + " >> is not in the collection");
+                    }
             }
-            else if(command.equals('R')){
+            else if(command.equals('R')){ //return
+                    String title = st.nextToken();
+                    String artist = st.nextToken();
+
+                    Album album = new Album(title, artist);
+                    if(collection.returnAlbum(album)){
+                        System.out.println(title + ":" + artist + " >> returning and set to available.");
+                    }
+                    else{
+                        System.out.println(title + ":" + artist + " >> return  cannot  be completed.");
+                    }
 
             }
             else if(command.equals('P')){
-
+                    collection.print();
             }
             else if(command.equals('PD')){
-
+                    collection.printByReleaseDate();
             }
             else if(command.equals('PG')){
-
+                    collection.printByGenre();
             }
             else {
                 System.out.println("Invalid command!");
             }
-
         }
         System.out.println("Collection Manager terminated");
     }
