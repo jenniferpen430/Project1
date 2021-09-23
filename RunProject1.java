@@ -1,3 +1,4 @@
+package albums;
 
 /**
  The RunProject1 class is used to run the run() method in the CollectionManager class and efficiently
