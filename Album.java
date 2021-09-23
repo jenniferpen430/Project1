@@ -8,10 +8,11 @@ public class Album {
     public enum Genre{ Classical, Country, Jazz, Pop, Unknown};
 
     //note ay
-    public Album(String title, String artist, Genre genre, String releaseData) {
+    public Album(String title, String artist, String genre, String releaseData) {
+        Genre genreAsEnum = Genre.valueOf(genre);
         this.title = title;
         this.artist = artist;
-        this.genre = genre;
+        this.genre = genreAsEnum;
         isAvailable = false;
         this.releaseDate = new Date(releaseData);
     }
