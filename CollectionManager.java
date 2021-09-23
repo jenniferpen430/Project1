@@ -15,11 +15,11 @@ public class CollectionManager {
         Scanner scanner = new Scanner(System.in);
         String line  = scanner.nextLine();
         this.collection = new Collection();
-        while(!line.equals('Q')){
+        while(!line.equals("Q")){
             StringTokenizer st = new StringTokenizer(line, "," , false);
             String command = st.nextToken();
 
-            if(command.equals('A')){ //add
+            if(command.equals("A")){ //add
                 String title = st.nextToken();
                 String artist = st.nextToken();
                 String genre = st.nextToken();
@@ -39,7 +39,7 @@ public class CollectionManager {
                     System.out.println("Invalid Date!");
                 }
             }
-            else if(command.equals('D')){ //remove
+            else if(command.equals("D")){ //remove
                 String title = st.nextToken();
                 String artist = st.nextToken();
 
@@ -52,7 +52,7 @@ public class CollectionManager {
                     System.out.println(title + "::" + artist + " >> is not in the collection");
                 }
             }
-            else if(command.equals('L')){ //lend
+            else if(command.equals("L")){ //lend
                     String title = st.nextToken();
                     String artist = st.nextToken();
 
@@ -64,7 +64,7 @@ public class CollectionManager {
                         System.out.println(title + ":" + artist + " >> is not in the collection");
                     }
             }
-            else if(command.equals('R')){ //return
+            else if(command.equals("R")){ //return
                     String title = st.nextToken();
                     String artist = st.nextToken();
 
@@ -77,7 +77,7 @@ public class CollectionManager {
                     }
 
             }
-            else if(command.equals('P')){
+            else if(command.equals("P")){
                     collection.print();
             }
             else if(command.equals("PD")){
