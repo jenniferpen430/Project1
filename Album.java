@@ -2,7 +2,7 @@ public class Album {
     private String title;
     private String artist;
     private Genre genre;
-    private Data releaseDate;
+    private Date releaseDate;
     private boolean isAvailable;
 
     public enum Genre{ Classical, Country, Jazz, Pop, Unknown};
@@ -13,7 +13,7 @@ public class Album {
         this.artist = artist;
         this.genre = genre;
         isAvailable = false;
-        this.releaseDate = new Date(date);
+        this.releaseDate = new Date(releaseData);
     }
 
     public Album(String title, String artist) {
