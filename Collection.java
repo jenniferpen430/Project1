@@ -96,9 +96,11 @@ public class Collection {
     } //set to available
 
     public void print() {
+        System.out.println("*List of albums in the collection.");
         for( int c = 0; c < albums.length; c++ ){
             System.out.println(albums[c].toString());
         }
+        System.out.println("*End of list");
     } //display the list without specifying the order
 
     public static void sortByDate(Album[] albums){
@@ -116,17 +118,18 @@ public class Collection {
     }
     public static void swap(Album[] albums, int i, int j){
         //Swap helper method for selection sort algorithm
-        Album temp = new Album();
-        temp = albums[i];
+        Album temp = albums[i];
         albums[i] = albums[j];
         albums[j] = temp;
     }
 
     public void printByReleaseDate() {
+        System.out.println("*Album collection by the release dates.");
         sortByDate(albums);
         for( int c = 0; c < albums.length; c++){
             System.out.println(albums[c].toString());
         }
+        System.out.println("*End of list");
     }
 
     public void sortByGenre(Album[] albums){
@@ -144,10 +147,12 @@ public class Collection {
     }
 
     public void printByGenre() {
+        System.out.println("*Album collection by genre.");
         sortByGenre(albums);
         for( int c = 0; c < albums.length; c++){
             System.out.println(albums[c].toString());
         }
+        System.out.println("*End of list");
     }
 
 }
