@@ -36,7 +36,7 @@ public class CollectionManager {
                     System.out.println(album.toString() + " >> added.");
                 }
                 else{
-                    System.out.println("Invalid Date!")
+                    System.out.println("Invalid Date!");
                 }
             }
             else if(command.equals('D')){ //remove

@@ -46,7 +46,7 @@ public class Album {
         return isAvailable;
     }
 
-    public Data getReleaseDate() {
+    public Date getReleaseDate() {
         return releaseDate;
     }
 
