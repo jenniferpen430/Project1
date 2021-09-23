@@ -20,7 +20,6 @@ public class CollectionManager {
             String command = st.nextToken();
 
             if(command.equals('A')){ //add
-                int NOT_FOUND = -1;
                 String title = st.nextToken();
                 String artist = st.nextToken();
                 String genre = st.nextToken();
@@ -28,7 +27,7 @@ public class CollectionManager {
 
                 Album album = new Album(title,artist,genre, date);
 
-                if(collection.find(album) == NOT_FOUND){
+                if(!collection.isHere(album)){
                     System.out.println(title + "::" + artist + " >> is not in  the collection.");
                 }
                 else if(album.getReleaseDate().isValid()){
