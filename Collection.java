@@ -3,6 +3,14 @@ public class Collection {
     private Album[] albums;
     private int numAlbums; //number of albums currently in the collection
 
+    public Collection(Album[] albums){
+        this.albums = albums;
+    }
+
+    public Collection(){
+        albums = new Album[4];
+    }
+
     private int find(Album album) {
         for( int c = 0; c < albums.length; c++ ){
             if( albums[c].equals(album) ){
