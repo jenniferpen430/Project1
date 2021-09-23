@@ -24,6 +24,10 @@ public class Collection {
     } //increase the capacity of the array list by 4
 
     public boolean add(Album album) {
+        //checking if the album is already in the collection.
+        if(find(album)>=0){
+            return false;
+        }
         //Checking where the last entry is to know if the array is filled already or not.
         int lastEntryLocation = 0;
         for( int c = 0; c < albums.length; c++ ){
@@ -72,18 +76,8 @@ public class Collection {
         return false;
     }
 
-    public boolean isHere(Album album, Album[] albums){
-        boolean isHere = false;
-        for(int c = 0; c<albums.length; c++){
-            if(albums[c].equals(album)){
-                return true;
-            }
-        }
-        return false;
-    }
-
     public boolean lendingOut(Album album) {
-        if(isHere(album,albums) == true){
+        if(find(album)>=0){
             album.setIsAvailable(false);
             return true;
         }else{
@@ -92,7 +86,7 @@ public class Collection {
     } //set to not available
 
     public boolean returnAlbum(Album album) {
-        if(isHere(album,albums) == true){
+        if(find(album)>=0){
             album.setIsAvailable(true);
             return true;
         }else{
