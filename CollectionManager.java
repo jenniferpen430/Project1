@@ -79,10 +79,10 @@ public class CollectionManager {
             else if(command.equals('P')){
                     collection.print();
             }
-            else if(command.equals('PD')){
+            else if(command.equals("PD")){
                     collection.printByReleaseDate();
             }
-            else if(command.equals('PG')){
+            else if(command.equals("PG")){
                     collection.printByGenre();
             }
             else {

@@ -52,7 +52,7 @@ public class Album {
 
     //
     @Override
-    public boolean equals(Album obj) {
+    public boolean equals(Album album) {
             return album.title.equals(this.title) && album.artist.equal(this.artist);
     }
 
