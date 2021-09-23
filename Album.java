@@ -7,7 +7,7 @@ public class Album {
 
     public enum Genre{ Classical, Country, Jazz, Pop, Unknown};
 
-    //note ay
+
     public Album(String title, String artist, String genre, String releaseData) {
         Genre genreAsEnum = Genre.valueOf(genre);
         this.title = title;
