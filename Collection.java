@@ -20,8 +20,18 @@ public class Collection {
         throw new IllegalArgumentException("NOT_FOUND");
         //aren't we supposed to return an int, how do we return not_found
         //this 0 is a placeholder
-        return -1;
+        //return -1;
     } //find the album index, or return NOT_FOUND
+
+    public boolean isHere(Album[] albums, Album album){
+        boolean here = false;
+        for(int c = 0; c < albums.length; c++){
+            if (albums[c].equals(album)){
+                here = true;
+            }
+        }
+        return here;
+    }
 
     private void grow() {
         Album[] biggerList = new Album[albums.length+4];
