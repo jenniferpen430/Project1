@@ -9,7 +9,10 @@ public class Album {
 
 
     public Album(String title, String artist, String genre, String releaseData) {
-        Genre genreAsEnum = Genre.valueOf(genre);
+        System.out.println(genre);
+        String readableGenre = genre.substring(0,1).toUpperCase()+genre.substring(1).toLowerCase();
+        //System.out.println(readableGenre);
+        Genre genreAsEnum = Genre.valueOf(readableGenre);
         this.title = title;
         this.artist = artist;
         this.genre = genreAsEnum;
