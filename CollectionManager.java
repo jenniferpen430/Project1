@@ -14,7 +14,7 @@ public class CollectionManager {
         System.out.println("Collection Manager starts running.");
         Scanner scanner = new Scanner(System.in);
         String line  = scanner.nextLine();
-        collection = new Collection();
+        this.collection = new Collection();
         while(!line.equals('Q')){
             StringTokenizer st = new StringTokenizer(line, "," , false);
             String command = st.nextToken();
@@ -24,6 +24,7 @@ public class CollectionManager {
                 String artist = st.nextToken();
                 String genre = st.nextToken();
                 String date = st.nextToken();
+
 
                 Album album = new Album(title,artist,genre, date);
 
