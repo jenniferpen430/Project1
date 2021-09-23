@@ -19,7 +19,6 @@ public class Date implements Comparable<Date> {
     }
 
 
-    //take “mm/dd/yyyy” and create a Date object
     public Date(String date) {
         StringTokenizer st = new StringTokenizer(date, "/");
 
