@@ -23,7 +23,7 @@ public class Collection {
         //return -1;
     } //find the album index, or return NOT_FOUND
 
-    public boolean isHere(Album[] albums, Album album){
+    public boolean isHere(Album album){
         boolean here = false;
         for(int c = 0; c < albums.length; c++){
             if (albums[c].equals(album)){
