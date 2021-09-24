@@ -16,79 +16,73 @@ public class CollectionManager {
         String line  = scanner.nextLine();
         this.collection = new Collection();
         while(!line.equals("Q")){
-            StringTokenizer st = new StringTokenizer(line, "," , false);
-            String command = st.nextToken();
+            if(line == ""){
+                System.out.println("Invalid command!");
+            }else {
+                StringTokenizer st = new StringTokenizer(line, ",", false);
+                String command = st.nextToken();
 
-            if(command.equals("A")){ //add
-                String title = st.nextToken();
-                String artist = st.nextToken();
-                String genre = st.nextToken();
-                String date = st.nextToken();
+                if (command.equals("A")) { //add
+                    String title = st.nextToken();
+                    String artist = st.nextToken();
+                    String genre = st.nextToken();
+                    String date = st.nextToken();
 
-                //System.out.println("title:"+title+" artist:"+artist+" genre:"+genre+" date:"+date);
+                    //System.out.println("title:"+title+" artist:"+artist+" genre:"+genre+" date:"+date);
 
 
-                Album album = new Album(title,artist,genre, date);
-                if(collection.isHere(album)){
-                    System.out.println(album.toString() + " >> is already in the collection.");
-                }else {
-                    if (album.getReleaseDate().isValid()) {
-                        collection.add(album);
-                        System.out.println(album.toString() + " >> added.");
+                    Album album = new Album(title, artist, genre, date);
+                    if (collection.isHere(album)) {
+                        System.out.println(album.toString() + " >> is already in the collection.");
                     } else {
-                        System.out.println("Invalid Date!");
+                        if (album.getReleaseDate().isValid()) {
+                            collection.add(album);
+                            System.out.println(album.toString() + " >> added.");
+                        } else {
+                            System.out.println("Invalid Date!");
+                        }
                     }
-                }
-            }
-            else if(command.equals("D")){ //remove
-                String title = st.nextToken();
-                String artist = st.nextToken();
-
-                Album album = new Album(title, artist);
-
-                if(collection.remove(album)){
-                    System.out.println(title + "::" + artist + " >> deleted.");
-                }
-                else {
-                    System.out.println(title + "::" + artist + " >> is not in the collection");
-                }
-            }
-            else if(command.equals("L")){ //lend
+                } else if (command.equals("D")) { //remove
                     String title = st.nextToken();
                     String artist = st.nextToken();
 
                     Album album = new Album(title, artist);
-                    if(collection.lendingOut(album)){
-                        System.out.println(title + "::" + artist + " >> lending out and set to not avaible.");
+
+                    if (collection.remove(album)) {
+                        System.out.println(title + "::" + artist + " >> deleted.");
+                    } else {
+                        System.out.println(title + "::" + artist + " >> is not in the collection");
                     }
-                    else{
+                } else if (command.equals("L")) { //lend
+                    String title = st.nextToken();
+                    String artist = st.nextToken();
+
+                    Album album = new Album(title, artist);
+                    if (collection.lendingOut(album)) {
+                        System.out.println(title + "::" + artist + " >> lending out and set to not avaible.");
+                    } else {
                         System.out.println(title + ":" + artist + " >> is not in the collection");
                     }
-            }
-            else if(command.equals("R")){ //return
+                } else if (command.equals("R")) { //return
                     String title = st.nextToken();
                     String artist = st.nextToken();
 
                     Album album = new Album(title, artist);
-                    if(collection.returnAlbum(album)){
+                    if (collection.returnAlbum(album)) {
                         System.out.println(title + ":" + artist + " >> returning and set to available.");
-                    }
-                    else{
+                    } else {
                         System.out.println(title + ":" + artist + " >> return  cannot  be completed.");
                     }
 
-            }
-            else if(command.equals("P")){
+                } else if (command.equals("P")) {
                     collection.print();
-            }
-            else if(command.equals("PD")){
+                } else if (command.equals("PD")) {
                     collection.printByReleaseDate();
-            }
-            else if(command.equals("PG")){
+                } else if (command.equals("PG")) {
                     collection.printByGenre();
-            }
-            else {
-                System.out.println("Invalid command!");
+                } else {
+                    System.out.println("Invalid command!");
+                }
             }
             scanner = new Scanner(System.in);
             line  = scanner.nextLine();
