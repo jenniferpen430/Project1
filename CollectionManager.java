@@ -25,6 +25,8 @@ public class CollectionManager {
                 String genre = st.nextToken();
                 String date = st.nextToken();
 
+                //System.out.println("title:"+title+" artist:"+artist+" genre:"+genre+" date:"+date);
+
 
                 Album album = new Album(title,artist,genre, date);
 
