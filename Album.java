@@ -68,7 +68,7 @@ public class Album {
             return this.title + "::" + this.artist + "::" + this.genre + "::" + releaseDate.toString() + " is available";
         }
         else{
-            return this.title + "::" + this.artist + "::" + this.genre + ":: is not available";
+            return this.title + "::" + this.artist + "::" + this.genre + "::" + releaseDate.toString() + " is not available";
         }
     }
 }
