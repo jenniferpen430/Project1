@@ -16,9 +16,11 @@ public class CollectionManager {
         String line  = scanner.nextLine();
         this.collection = new Collection();
         while(!line.equals("Q")){
+
             if(line == ""){
                 System.out.println("Invalid command!");
             }else {
+
                 StringTokenizer st = new StringTokenizer(line, ",", false);
                 String command = st.nextToken();
 
