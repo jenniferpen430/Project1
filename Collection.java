@@ -86,7 +86,7 @@ public class Collection {
         int newListPointer = 0;
         Album[] newList = new Album[albums.length];
         //traverse albums to find the album the user wants to remove
-        for( int c = 0; c < albums.length; c++){
+        for( int c = 0; c < numAlbums; c++){
             if( albums[c].equals(album) ){
                 //once the album is found, replicate the old array into a new one without the removed object
                 for( int g = 0; g < albums.length; g++ ){
@@ -97,6 +97,7 @@ public class Collection {
                     }
                     newListPointer++;
                 }
+                this.albums = newList;
                 numAlbums--;
                 //the album was found and removed
                 return true;
@@ -137,19 +138,19 @@ public class Collection {
             System.out.println("The collection is empty!");
         } else {
             System.out.println("*List of albums in the collection.");
-            for (int c = 0; c < albums.length; c++) {
+            for (int c = 0; c < numAlbums; c++) {
                 System.out.println(albums[c].toString());
             }
             System.out.println("*End of list");
         }
     } //display the list without specifying the order
 
-    public static void sortByDate(Album[] albums){
+    public void sortByDate(Album[] albums){
         //Selection Sort algorithm
-        int albumsLength = albums.length;
-        for( int i = 0; i < albumsLength; i++ ){
+        //int albumsLength = albums.length;
+        for( int i = 0; i < numAlbums; i++ ){
             int min = i;
-            for(int j = i+1; j<albumsLength; j++){
+            for(int j = i+1; j<numAlbums; j++){
                 if( albums[i].getReleaseDate().compareTo(albums[j].getReleaseDate()) > 1 ){
                     min = j;
                 }
@@ -170,7 +171,7 @@ public class Collection {
         }else {
             System.out.println("*Album collection by the release dates.");
             sortByDate(albums);
-            for (int c = 0; c < albums.length; c++) {
+            for (int c = 0; c < numAlbums; c++) {
                 System.out.println(albums[c].toString());
             }
             System.out.println("*End of list");
@@ -179,10 +180,9 @@ public class Collection {
 
     public void sortByGenre(Album[] albums){
         //Selection Sort algorithm
-        int albumsLength = albums.length;
-        for( int i = 0; i < albumsLength; i++ ){
+        for( int i = 0; i < numAlbums; i++ ){
             int min = i;
-            for(int j = i+1; j<albumsLength; j++){
+            for(int j = i+1; j<numAlbums; j++){
                 if( albums[i].getGenre().compareTo(albums[j].getGenre()) > 0 ){
                     min = j;
                 }
@@ -197,7 +197,7 @@ public class Collection {
         }else {
             System.out.println("*Album collection by genre.");
             sortByGenre(albums);
-            for (int c = 0; c < albums.length; c++) {
+            for (int c = 0; c < numAlbums; c++) {
                 System.out.println(albums[c].toString());
             }
             System.out.println("*End of list");
