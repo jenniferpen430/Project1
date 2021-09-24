@@ -31,9 +31,14 @@ public class CollectionManager {
                     String date = st.nextToken();
 
                     //System.out.println("title:"+title+" artist:"+artist+" genre:"+genre+" date:"+date);
+                    String readableGenre = genre.substring(0,1).toUpperCase()+genre.substring(1).toLowerCase();
+                    System.out.println("genre b4 if: "+readableGenre);
+                    if(!Genre.includes(readableGenre)){
+                        readableGenre = "Unknown";
+                    }
+                    System.out.println("genre after if: "+readableGenre);
 
-
-                    Album album = new Album(title, artist, genre, date);
+                    Album album = new Album(title, artist, readableGenre, date);
                     if (collection.isHere(album)) {
                         System.out.println(album.toString() + " >> is already in the collection.");
                     } else {
