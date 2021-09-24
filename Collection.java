@@ -13,7 +13,7 @@ public class Collection {
 
     private int find(Album album) {
         if(albums[0] == null){
-            //poo
+            return -1;
         }
         for( int c = 0; c < albums.length; c++ ){
             if( albums[c].equals(album) ){
@@ -34,6 +34,7 @@ public class Collection {
         for(int c = 0; c < albums.length; c++){
             if (albums[c].equals(album)){
                 here = true;
+                break;
             }
         }
         return here;

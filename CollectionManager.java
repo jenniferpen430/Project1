@@ -88,7 +88,8 @@ public class CollectionManager {
             else {
                 System.out.println("Invalid command!");
             }
-
+            scanner = new Scanner(System.in);
+            line  = scanner.nextLine();
         }
         System.out.println("Collection Manager terminated");
     }
