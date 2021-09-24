@@ -30,10 +30,7 @@ public class CollectionManager {
 
                 Album album = new Album(title,artist,genre, date);
 
-                if(!collection.isHere(album)){
-                    System.out.println(title + "::" + artist + " >> is not in  the collection.");
-                }
-                else if(album.getReleaseDate().isValid()){
+                if(album.getReleaseDate().isValid()){
                     collection.add(album);
                     System.out.println(album.toString() + " >> added.");
                 }
