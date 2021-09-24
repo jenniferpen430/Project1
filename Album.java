@@ -65,7 +65,7 @@ public class Album {
     @Override
     public String toString() {
         if(isAvailable){
-            return this.title + "::" + this.artist + "::" + this.genre + ":: is available";
+            return this.title + "::" + this.artist + "::" + this.genre + "::" + releaseDate.toString() + " is available";
         }
         else{
             return this.title + "::" + this.artist + "::" + this.genre + ":: is not available";
