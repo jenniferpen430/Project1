@@ -54,6 +54,7 @@ public class Collection {
             return false;
         }
         //Checking where the last entry is to know if the array is filled already or not.
+        album.setIsAvailable(true);
         int lastEntryLocation = 0;
         for( int c = 0; c < albums.length; c++ ){
             if( albums[c] == null ){
@@ -101,6 +102,13 @@ public class Collection {
         return false;
     }
 
+    private boolean emptyArray(Album[] albums){
+        if(albums[0] == null){
+            return true;
+        }
+        return false;
+    }
+
     public boolean lendingOut(Album album) {
         if(find(album)>=0){
             album.setIsAvailable(false);
@@ -121,11 +129,15 @@ public class Collection {
     } //set to available
 
     public void print() {
-        System.out.println("*List of albums in the collection.");
-        for( int c = 0; c < albums.length; c++ ){
-            System.out.println(albums[c].toString());
+        if (emptyArray(albums)) {
+            System.out.println("The collection is empty!");
+        } else {
+            System.out.println("*List of albums in the collection.");
+            for (int c = 0; c < albums.length; c++) {
+                System.out.println(albums[c].toString());
+            }
+            System.out.println("*End of list");
         }
-        System.out.println("*End of list");
     } //display the list without specifying the order
 
     public static void sortByDate(Album[] albums){
@@ -149,12 +161,16 @@ public class Collection {
     }
 
     public void printByReleaseDate() {
-        System.out.println("*Album collection by the release dates.");
-        sortByDate(albums);
-        for( int c = 0; c < albums.length; c++){
-            System.out.println(albums[c].toString());
+        if(emptyArray(albums)){
+            System.out.println("The collection is empty!");
+        }else {
+            System.out.println("*Album collection by the release dates.");
+            sortByDate(albums);
+            for (int c = 0; c < albums.length; c++) {
+                System.out.println(albums[c].toString());
+            }
+            System.out.println("*End of list");
         }
-        System.out.println("*End of list");
     }
 
     public void sortByGenre(Album[] albums){
@@ -172,12 +188,16 @@ public class Collection {
     }
 
     public void printByGenre() {
-        System.out.println("*Album collection by genre.");
-        sortByGenre(albums);
-        for( int c = 0; c < albums.length; c++){
-            System.out.println(albums[c].toString());
+        if(emptyArray(albums)){
+            System.out.println("The collection is empty!");
+        }else {
+            System.out.println("*Album collection by genre.");
+            sortByGenre(albums);
+            for (int c = 0; c < albums.length; c++) {
+                System.out.println(albums[c].toString());
+            }
+            System.out.println("*End of list");
         }
-        System.out.println("*End of list");
     }
 
 }
