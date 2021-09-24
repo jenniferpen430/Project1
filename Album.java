@@ -16,7 +16,8 @@ public class Album {
         this.title = title;
         this.artist = artist;
         this.genre = genreAsEnum;
-        isAvailable = false;
+        //changed this to default to true.
+        isAvailable = true;
         this.releaseDate = new Date(releaseData);
     }
 

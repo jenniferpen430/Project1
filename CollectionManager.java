@@ -29,13 +29,15 @@ public class CollectionManager {
 
 
                 Album album = new Album(title,artist,genre, date);
-
-                if(album.getReleaseDate().isValid()){
-                    collection.add(album);
-                    System.out.println(album.toString() + " >> added.");
-                }
-                else{
-                    System.out.println("Invalid Date!");
+                if(collection.isHere(album)){
+                    System.out.println(album.toString() + " >> is already in the collection.");
+                }else {
+                    if (album.getReleaseDate().isValid()) {
+                        collection.add(album);
+                        System.out.println(album.toString() + " >> added.");
+                    } else {
+                        System.out.println("Invalid Date!");
+                    }
                 }
             }
             else if(command.equals("D")){ //remove
@@ -91,6 +93,6 @@ public class CollectionManager {
             scanner = new Scanner(System.in);
             line  = scanner.nextLine();
         }
-        System.out.println("Collection Manager terminated");
+        System.out.println("Collection Manager terminated.");
     }
 }

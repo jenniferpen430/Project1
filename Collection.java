@@ -4,10 +4,12 @@ public class Collection {
     private int numAlbums; //number of albums currently in the collection
 
     public Collection(Album[] albums){
+        this.numAlbums = 0;
         this.albums = albums;
     }
 
     public Collection(){
+        numAlbums = 0;
         albums = new Album[4];
     }
 
@@ -15,15 +17,15 @@ public class Collection {
         if(albums[0] == null){
             return -1;
         }
-        for( int c = 0; c < albums.length; c++ ){
+        for( int c = 0; c < numAlbums; c++ ){
             if( albums[c].equals(album) ){
                 return c;
             }
         }
-        throw new IllegalArgumentException("NOT_FOUND");
+        //throw new IllegalArgumentException("NOT_FOUND");
         //aren't we supposed to return an int, how do we return not_found
         //this 0 is a placeholder
-        //return -1;
+        return -1;
     } //find the album index, or return NOT_FOUND
 
     public boolean isHere(Album album){
@@ -31,7 +33,7 @@ public class Collection {
             return false;
         }
         boolean here = false;
-        for(int c = 0; c < albums.length; c++){
+        for(int c = 0; c < numAlbums; c++){
             if (albums[c].equals(album)){
                 here = true;
                 break;
@@ -72,6 +74,7 @@ public class Collection {
             grow();
             albums[lastEntryLocation+1] = album;
         }
+        numAlbums++;
         return true;
     }
 
@@ -94,6 +97,7 @@ public class Collection {
                     }
                     newListPointer++;
                 }
+                numAlbums--;
                 //the album was found and removed
                 return true;
             }
