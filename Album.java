@@ -5,11 +5,11 @@ public class Album {
     private Date releaseDate;
     private boolean isAvailable;
 
-    public enum Genre{ Classical, Country, Jazz, Pop, Unknown};
+    //public enum Genre{ Classical, Country, Jazz, Pop, Unknown};
 
 
     public Album(String title, String artist, String genre, String releaseData) {
-        System.out.println(genre);
+        //System.out.println(genre);
         String readableGenre = genre.substring(0,1).toUpperCase()+genre.substring(1).toLowerCase();
         //System.out.println(readableGenre);
         Genre genreAsEnum = Genre.valueOf(readableGenre);
