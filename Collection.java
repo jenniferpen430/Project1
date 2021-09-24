@@ -151,7 +151,7 @@ public class Collection {
         for( int i = 0; i < numAlbums; i++ ){
             int min = i;
             for(int j = i+1; j<numAlbums; j++){
-                if( albums[i].getReleaseDate().compareTo(albums[j].getReleaseDate()) > 1 ){
+                if( albums[i].getReleaseDate().compareTo(albums[j].getReleaseDate()) > 0 ){
                     min = j;
                 }
             }
