@@ -32,11 +32,9 @@ public class CollectionManager {
 
                     //System.out.println("title:"+title+" artist:"+artist+" genre:"+genre+" date:"+date);
                     String readableGenre = genre.substring(0,1).toUpperCase()+genre.substring(1).toLowerCase();
-                    System.out.println("genre b4 if: "+readableGenre);
                     if(!Genre.includes(readableGenre)){
                         readableGenre = "Unknown";
                     }
-                    System.out.println("genre after if: "+readableGenre);
 
                     Album album = new Album(title, artist, readableGenre, date);
                     if (collection.isHere(album)) {
