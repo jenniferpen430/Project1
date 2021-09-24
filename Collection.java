@@ -12,6 +12,9 @@ public class Collection {
     }
 
     private int find(Album album) {
+        if(albums[0] == null){
+            //poo
+        }
         for( int c = 0; c < albums.length; c++ ){
             if( albums[c].equals(album) ){
                 return c;
