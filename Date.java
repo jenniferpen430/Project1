@@ -64,24 +64,19 @@ public class Date implements Comparable<Date> {
 
     //checking if date is valid
     public boolean isValid() {
-        Date todaysDate = new Date();
 
         if(year < YEAR_MIN || year > Calendar.getInstance().get(Calendar.YEAR) || (year == Calendar.getInstance().get(Calendar.YEAR) && month>Calendar.getInstance().get(Calendar.MONTH))
                 || (year==Calendar.getInstance().get(Calendar.YEAR) && month==Calendar.getInstance().get(Calendar.MONTH)
                 && day>Calendar.getInstance().get(Calendar.DAY_OF_MONTH))){
-            System.out.println("first if");
             return false;
         }
         else if(month < JANUARY || month > DECEMBER || day < DAY_MIN){
-            System.out.println("2 if");
             return false;
         }
         else if((month == JANUARY  || month == MARCH || month  == MAY || month  == JULY || month == AUGUST || month  == OCTOBER || month == DECEMBER) && day > DAY_MAX ){
-            System.out.println("3 if");
             return false;
         }
         else if((month == APRIL || month == JUNE || month == SEPETEMBER || month ==  NOVEMBER) && day > DAY_NORM){
-            System.out.println("4 if");
             return false;
         }
         else if (month == FEBRUARY) { //check leap year

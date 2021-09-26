@@ -64,9 +64,9 @@ public class CollectionManager {
 
                     Album album = new Album(title, artist);
                     if (collection.lendingOut(album)) {
-                        System.out.println(title + "::" + artist + " >> lending out and set to not avaible.");
+                        System.out.println(title + "::" + artist + " >> lending out and set to not available.");
                     } else {
-                        System.out.println(title + ":" + artist + " >> is not in the collection");
+                        System.out.println(title + "::" + artist + " >> is not available.");
                     }
                 } else if (command.equals("R")) { //return
                     String title = st.nextToken();
@@ -74,9 +74,9 @@ public class CollectionManager {
 
                     Album album = new Album(title, artist);
                     if (collection.returnAlbum(album)) {
-                        System.out.println(title + ":" + artist + " >> returning and set to available.");
+                        System.out.println(title + "::" + artist + " >> returning and set to available.");
                     } else {
-                        System.out.println(title + ":" + artist + " >> return  cannot  be completed.");
+                        System.out.println(title + "::" + artist + " >> return  cannot  be completed.");
                     }
 
                 } else if (command.equals("P")) {

@@ -116,22 +116,23 @@ public class Collection {
     }
 
     public boolean lendingOut(Album album) {
-        if(find(album)>=0){
-            album.setIsAvailable(false);
-            return true;
-        }else{
-            return false;
+        if(find(album) >= 0){
+            if( albums[find(album)].getIsAvailable()  ){
+                albums[find(album)].setIsAvailable(false);
+                return true;
+            }
         }
+        return false;
     } //set to not available
 
     public boolean returnAlbum(Album album) {
-        if(find(album)>=0 && !album.getIsAvailable()){
-            album.setIsAvailable(true);
-            return true;
-        }else{
-            return false;
+        if( find(album) >= 0 ){
+            if( !albums[find(album)].getIsAvailable() ){
+                albums[find(album)].setIsAvailable(true);
+                return true;
+            }
         }
-
+        return false;
     } //set to available
 
     public void print() {
