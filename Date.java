@@ -18,7 +18,7 @@ public class Date implements Comparable<Date> {
         System.out.println("this date is " + date3.isValid());
     }
 
-
+    //constructor for Date class, takes
     public Date(String date) {
         StringTokenizer st = new StringTokenizer(date, "/");
 

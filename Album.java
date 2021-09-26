@@ -5,8 +5,6 @@ public class Album {
     private Date releaseDate;
     private boolean isAvailable;
 
-    //public enum Genre{ Classical, Country, Jazz, Pop, Unknown};
-
 
     public Album(String title, String artist, String genre, String releaseData) {
         //System.out.println(genre);
