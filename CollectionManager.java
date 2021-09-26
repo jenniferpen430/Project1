@@ -17,7 +17,7 @@ public class CollectionManager {
         this.collection = new Collection();
         while(!line.equals("Q")){
 
-            if(line == ""){
+            if(line == "" || line.isEmpty() || line == null){
                 System.out.println("Invalid command!");
             }else {
 
