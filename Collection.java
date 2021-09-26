@@ -14,8 +14,9 @@ public class Collection {
     }
 
     private int find(Album album) {
+        int NOT_FOUND = -1;
         if(albums[0] == null){
-            return -1;
+            return NOT_FOUND;
         }
         for( int c = 0; c < numAlbums; c++ ){
             if( albums[c].equals(album) ){
@@ -25,7 +26,7 @@ public class Collection {
         //throw new IllegalArgumentException("NOT_FOUND");
         //aren't we supposed to return an int, how do we return not_found
         //this 0 is a placeholder
-        return -1;
+        return NOT_FOUND;
     } //find the album index, or return NOT_FOUND
 
     public boolean isHere(Album album){
@@ -124,7 +125,7 @@ public class Collection {
     } //set to not available
 
     public boolean returnAlbum(Album album) {
-        if(find(album)>=0){
+        if(find(album)>=0 && !album.getIsAvailable()){
             album.setIsAvailable(true);
             return true;
         }else{
@@ -150,8 +151,8 @@ public class Collection {
         //int albumsLength = albums.length;
         for( int i = 0; i < numAlbums; i++ ){
             int min = i;
-            for(int j = i+1; j<numAlbums; j++){
-                if( albums[i].getReleaseDate().compareTo(albums[j].getReleaseDate()) > 0 ){
+            for(int j = i+1; j < numAlbums; j++){
+                if( albums[min].getReleaseDate().compareTo(albums[j].getReleaseDate()) > 0 ){
                     min = j;
                 }
             }
@@ -183,7 +184,7 @@ public class Collection {
         for( int i = 0; i < numAlbums; i++ ){
             int min = i;
             for(int j = i+1; j<numAlbums; j++){
-                if( albums[i].getGenre().compareTo(albums[j].getGenre()) > 0 ){
+                if( albums[min].getGenre().compareTo(albums[j].getGenre()) > 0 ){
                     min = j;
                 }
             }
