@@ -3,7 +3,8 @@ import java.util.StringTokenizer;
 
 
 /**
- The CollectionManager class is used to run
+ The CollectionManager class is used as the user interface for the program.
+ It will parse through the commands and execute them if valid.
 
  @author Adams, Jennifer
  */

@@ -5,7 +5,13 @@ public class Album {
     private Date releaseDate;
     private boolean isAvailable;
 
+    /**
+     The ALBUM class is used to run
 
+     @author Adams, Jennifer
+     */
+
+    // The album constructor class
     public Album(String title, String artist, String genre, String releaseData) {
         //System.out.println(genre);
         //String readableGenre = genre.substring(0,1).toUpperCase()+genre.substring(1).toLowerCase();

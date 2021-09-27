@@ -30,12 +30,10 @@ public class Date implements Comparable<Date> {
 
     //create an object with today’s date (see Calendar class)
     public Date(){
-        int MONTH_OFFSET = 1;
-
         Calendar today = Calendar.getInstance();
 
         this.day = today.get(Calendar.DAY_OF_MONTH);
-        this.month = today.get(Calendar.MONTH) + MONTH_OFFSET;
+        this.month = today.get(Calendar.MONTH) ;
         this.year = today.get(Calendar.YEAR);
     }
 
@@ -47,7 +45,7 @@ public class Date implements Comparable<Date> {
     public static final int JUNE = 6;
     public static final int JULY = 7;
     public static final int AUGUST = 8;
-    public static final int SEPETEMBER = 9;
+    public static final int SEPTEMBER = 9;
     public static final int OCTOBER = 10;
     public static final int NOVEMBER = 11;
     public static final int DECEMBER = 12;
@@ -76,7 +74,7 @@ public class Date implements Comparable<Date> {
         else if((month == JANUARY  || month == MARCH || month  == MAY || month  == JULY || month == AUGUST || month  == OCTOBER || month == DECEMBER) && day > DAY_MAX ){
             return false;
         }
-        else if((month == APRIL || month == JUNE || month == SEPETEMBER || month ==  NOVEMBER) && day > DAY_NORM){
+        else if((month == APRIL || month == JUNE || month == SEPTEMBER || month ==  NOVEMBER) && day > DAY_NORM){
             return false;
         }
         else if (month == FEBRUARY) { //check leap year
