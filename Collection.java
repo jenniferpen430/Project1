@@ -217,13 +217,13 @@ public class Collection {
         //Selection Sort algorithm
         //int albumsLength = albums.length;
         for( int i = 0; i < numAlbums; i++ ){
-            int min = i;
+            int earliest = i;
             for(int j = i+1; j < numAlbums; j++){
-                if( albums[min].getReleaseDate().compareTo(albums[j].getReleaseDate()) > 0 ){
-                    min = j;
+                if( albums[earliest].getReleaseDate().compareTo(albums[j].getReleaseDate()) > 0 ){
+                    earliest = j;
                 }
             }
-            swap(albums, i, min);
+            swap(albums, i, earliest);
         }
     }
 
@@ -231,14 +231,14 @@ public class Collection {
      * Swap is a helper method to sortByDate and sortByGenre which does the work of swapping two albums at
      * indices i and j in the Album array albums.
      * @param albums
-     * @param i
-     * @param j
+     * @param first
+     * @param last
      */
-    public static void swap(Album[] albums, int i, int j){
+    public static void swap(Album[] albums, int first, int last){
         //Swap helper method for selection sort algorithm
-        Album temp = albums[i];
-        albums[i] = albums[j];
-        albums[j] = temp;
+        Album save = albums[first];
+        albums[first] = albums[last];
+        albums[last] = save;
     }
 
     /**
@@ -267,13 +267,13 @@ public class Collection {
     public void sortByGenre(Album[] albums){
         //Selection Sort algorithm
         for( int i = 0; i < numAlbums; i++ ){
-            int min = i;
+            int earliest = i;
             for(int j = i+1; j<numAlbums; j++){
-                if( albums[min].getGenre().compareTo(albums[j].getGenre()) > 0 ){
-                    min = j;
+                if( albums[earliest].getGenre().compareTo(albums[j].getGenre()) > 0 ){
+                    earliest = j;
                 }
             }
-            swap(albums, i, min);
+            swap(albums, i, earliest);
         }
     }
 
