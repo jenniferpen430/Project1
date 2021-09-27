@@ -13,14 +13,10 @@ public class Album {
 
     // The album constructor class
     public Album(String title, String artist, String genre, String releaseData) {
-        //System.out.println(genre);
-        //String readableGenre = genre.substring(0,1).toUpperCase()+genre.substring(1).toLowerCase();
-        //System.out.println(readableGenre);
         Genre genreAsEnum = Genre.valueOf(genre);
         this.title = title;
         this.artist = artist;
         this.genre = genreAsEnum;
-        //changed this to default to true.
         isAvailable = true;
         this.releaseDate = new Date(releaseData);
     }
