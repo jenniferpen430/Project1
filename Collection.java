@@ -9,11 +9,20 @@ public class Collection {
     private Album[] albums;
     private int numAlbums; //number of albums currently in the collection
 
+    /**
+     * This is the overloaded constructor for the Collection class. If Collection is called with an album array
+     * a new collection is created with those albums inside it.
+     * @param albums
+     */
     public Collection(Album[] albums){
         this.numAlbums = 0;
         this.albums = albums;
     }
 
+    /**
+     * This method is the default constructor for the Collection class. If Collection is called with no arguments,
+     * a new collection object is initialized with a size of 4 and no albums in it yet.
+     */
     public Collection(){
         numAlbums = 0;
         albums = new Album[4];
