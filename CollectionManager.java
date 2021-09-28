@@ -54,9 +54,11 @@ public class CollectionManager {
         System.out.println("Collection Manager terminated.");
     }
 
+    /**
+        This method adds the album if it is not already there into an album collection
+     */
     public void adding(){
         String readableGenre = genre.substring(0,1).toUpperCase()+genre.substring(1).toLowerCase();
-        //Album album = new Album(title, artist, readableGenre, date);
         if(!Genre.includes(readableGenre)){
             readableGenre = "Unknown";
         }
@@ -72,6 +74,10 @@ public class CollectionManager {
             }
         }
     }
+
+    /**
+     This method removes the album if it is not already there into an album collection
+     */
     private void remove(){
         Album album = new Album(title, artist);
         if (collection.remove(album)) {
@@ -80,6 +86,10 @@ public class CollectionManager {
             System.out.println(title + "::" + artist + " >> is not in the collection");
         }
     }
+
+    /**
+     This method lends the album if it is not avaible in the album collection
+     */
     private void lend(){
         Album album = new Album(title, artist);
         if (collection.lendingOut(album)) {
@@ -88,6 +98,10 @@ public class CollectionManager {
             System.out.println(title + "::" + artist + " >> is not available.");
         }
     }
+
+    /**
+     This method returns the album if it is not avaible or in album collection
+     */
     private void deposit(){
         Album album = new Album(title, artist);
         if (collection.returnAlbum(album)) {
@@ -96,6 +110,10 @@ public class CollectionManager {
             System.out.println(title + "::" + artist + " >> return  cannot  be completed.");
         }
     }
+
+    /**
+     This method prints the album if it is in an album collection
+     */
     private void print(String command){
         if (command.equals("P")){
             collection.print();

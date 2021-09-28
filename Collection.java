@@ -23,6 +23,7 @@ public class Collection {
      * This method is the default constructor for the Collection class. If Collection is called with no arguments,
      * a new collection object is initialized with a size of 4 and no albums in it yet.
      */
+
     public Collection(){
         numAlbums = 0;
         albums = new Album[4];

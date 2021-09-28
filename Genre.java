@@ -2,6 +2,7 @@
  * The Genre enum class stores the value of each music genre that the albums that are passed into
  * the Collection could be. If the inputted album doesn't have a genre that matches any of the known ones,
  * it is classified as unknown.
+ *
  */
 
 public enum Genre {

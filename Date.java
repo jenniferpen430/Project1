@@ -99,8 +99,9 @@ public class Date implements Comparable<Date> {
         this.month = today.get(Calendar.MONTH) ;
         this.year = today.get(Calendar.YEAR);
     }
-
-    //checking if date is valid
+    /**
+     This method checks if the date is valid or not
+     */
     public boolean isValid() {
         Date todaysDate = new Date();
         if(year < YEAR_MIN || year > todaysDate.getYear() || (year == todaysDate.getYear() && month > todaysDate.getMonth()) || (year == todaysDate.getYear() && month == todaysDate.getMonth() && day > todaysDate.getDay())){
@@ -120,6 +121,10 @@ public class Date implements Comparable<Date> {
         }
         return true;
     }
+
+    /**
+     This method checks if the date is a proper leap year
+     */
     public boolean leapCheck(){
         if (year % QUADRENNIAL == 0) {
             if (year % CENTENNIAL == 0) {
@@ -145,16 +150,20 @@ public class Date implements Comparable<Date> {
         return true;
     }
 
-    //
+    /**
+     This method checks if the date is greater, lessthan or equal to the input date in the
+     parameter
+     EX:
+     // 09/19/1990 vs 09/18/1991 should return -1
+     // 09/19/1991 vs 09/18/1990 should return 1
+     // 09/19/1990 vs 08/18/1990 should return 1
+     */
     @Override
     public int compareTo(Date date) {
         int GREATER = 1;
         int LESSTHAN = -1;
         int EQUAL = 0;
 
-        // 09/19/1990 vs 09/18/1991 should return -1
-        // 09/19/1991 vs 09/18/1990 should return 1
-        // 09/19/1990 vs 08/18/1990 should return 1
         if(year > date.getYear() || (year == date.getYear() && month > date.getMonth()) || (year == date.getYear() && month == date.getMonth() && day > date.getDay())){
             return GREATER;
         }
@@ -164,6 +173,10 @@ public class Date implements Comparable<Date> {
         return EQUAL;
     }
 
+    /**
+     This method takes the date and returns the string version of the date
+     formatted
+     */
     public String toString(){
         return month + "/" + day + "/" + year;
     }
