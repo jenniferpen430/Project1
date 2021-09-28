@@ -34,11 +34,11 @@ public class CollectionManager {
                     date = st.nextToken();
                     adding();
                 } else if (command.equals("D")) { //remove
-                    remove(album);
+                    remove();
                 } else if (command.equals("L")) { //lend
-                    lend(album);
+                    lend();
                 } else if (command.equals("R")) { //return
-                    deposit(album);
+                    deposit();
                 } else if (command.equals("P") || command.equals("PD") || command.equals("PG")) {
                     print(command);
                 }else{
