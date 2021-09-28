@@ -1,13 +1,26 @@
 import java.util.Calendar;
 import java.util.StringTokenizer;
 
+/**
+ The Date class stores the day, month, and year from the user input and makes
+ sure a date is valid.
+ @author Adams, Jennifer
+ */
+
 public class Date implements Comparable<Date> {
     private int year;
     private int month;
     private int day;
 
-    //test bed main
+    /**
+     This is the testbed main used to test whether the isValid() method works
+     @param string array arguments
+     */
     public static void main(String[] args) {
+
+        Date date0 = new Date("05/12/979");
+        System.out.println("this date is " + date0.isValid());
+
         Date date1 = new Date("9/19/2001");
         System.out.println("this date is " + date1.isValid());
 
@@ -18,7 +31,11 @@ public class Date implements Comparable<Date> {
         System.out.println("this date is " + date3.isValid());
     }
 
-    //constructor for Date class, takes
+    /**
+     This method is to construct the Date object from the user input string.
+     The day, month, and year is separated by using the String tokenizer.
+     @param String of date from user input
+     */
     public Date(String date) {
         StringTokenizer st = new StringTokenizer(date, "/");
 
@@ -28,7 +45,10 @@ public class Date implements Comparable<Date> {
 
     }
 
-    //create an object with today’s date (see Calendar class)
+    /**
+     This method creates a Date object with today’s date with an instance of
+     the Calender class
+     */
     public Date(){
         Calendar today = Calendar.getInstance();
 
@@ -62,10 +82,8 @@ public class Date implements Comparable<Date> {
 
     //checking if date is valid
     public boolean isValid() {
-
-        if(year < YEAR_MIN || year > Calendar.getInstance().get(Calendar.YEAR) || (year == Calendar.getInstance().get(Calendar.YEAR) && month>Calendar.getInstance().get(Calendar.MONTH))
-                || (year==Calendar.getInstance().get(Calendar.YEAR) && month==Calendar.getInstance().get(Calendar.MONTH)
-                && day>Calendar.getInstance().get(Calendar.DAY_OF_MONTH))){
+        Date todaysDate = new Date();
+        if(year < YEAR_MIN || year > todaysDate.getYear() || (year == todaysDate.getYear() && month > todaysDate.getMonth()) || (year == todaysDate.getYear() && month == todaysDate.getMonth() && day > todaysDate.getDay())){
             return false;
         }
         else if(month < JANUARY || month > DECEMBER || day < DAY_MIN){
@@ -78,31 +96,34 @@ public class Date implements Comparable<Date> {
             return false;
         }
         else if (month == FEBRUARY) { //check leap year
-            if (year % QUADRENNIAL == 0) { //STEP 1
-                if (year % CENTENNIAL == 0) { //STEP 2
-                    if (year % QUATERCENTENNIAL == 0) { //STEP 3
-                        if (day > LEAP_DAYS) { //STEP 4
-                            return false;
-                        }
-                    } else { //STEP 5
-                        if (day > NON_LEAP) {
-                            return false;
-                        }
-                    }
-                } else {
+            return leapCheck();
+        }
+        return true;
+    }
+    public boolean leapCheck(){
+        if (year % QUADRENNIAL == 0) {
+            if (year % CENTENNIAL == 0) {
+                if (year % QUATERCENTENNIAL == 0) {
                     if (day > LEAP_DAYS) {
+                        return false;
+                    }
+                } else { //STEP 5
+                    if (day > NON_LEAP) {
                         return false;
                     }
                 }
             } else {
-                if (day > NON_LEAP) {
+                if (day > LEAP_DAYS) {
                     return false;
                 }
+            }
+        } else {
+            if (day > NON_LEAP) {
+                return false;
             }
         }
         return true;
     }
-
 
     //
     @Override
@@ -127,17 +148,26 @@ public class Date implements Comparable<Date> {
         return month + "/" + day + "/" + year;
     }
 
-    //Gets the day of the Date obj
+    /**
+     Getter method for day so it can be used in other classes
+     @return day
+     */
     public int getDay(){
         return day;
     }
 
-    //Gets the month of the Date obj
+    /**
+     Getter method for day so it can be used in other classes
+     @return month
+     */
     public int getMonth(){
         return month;
     }
 
-    //Gets the year of the Date obj
+    /**
+     Getter method for year so that
+     @return year
+     */
     public int getYear(){
         return year;
     }
