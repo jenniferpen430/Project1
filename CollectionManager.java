@@ -93,7 +93,7 @@ public class CollectionManager {
         }
     }
     private void print(String command){
-        if (command.equals("P"){
+        if (command.equals("P")){
             collection.print();
         } else if(command.equals("PD")) {
             collection.printByReleaseDate();
