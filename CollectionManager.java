@@ -32,7 +32,7 @@ public class CollectionManager {
                 }else if(command.equals("A") || command.equals("D") || command.equals("L") || command.equals("R") ){
                     title = st.nextToken();
                     artist = st.nextToken();
-                    if (command.equals("A")) { //add
+                    if (command.equals("A")) { // add
                         genre = st.nextToken();
                         date = st.nextToken();
                         adding();
