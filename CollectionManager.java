@@ -55,10 +55,11 @@ public class CollectionManager {
 
     public void adding(){
         String readableGenre = genre.substring(0,1).toUpperCase()+genre.substring(1).toLowerCase();
-        Album album = new Album(title, artist, readableGenre, date);
+        //Album album = new Album(title, artist, readableGenre, date);
         if(!Genre.includes(readableGenre)){
             readableGenre = "Unknown";
         }
+        Album album = new Album(title, artist, readableGenre, date);
         if (collection.isHere(album)) {
             System.out.println(album.toString() + " >> is already in the collection.");
         } else {
