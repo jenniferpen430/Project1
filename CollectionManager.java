@@ -29,7 +29,7 @@ public class CollectionManager {
                 command = st.nextToken();
                 if (command.equals("P") || command.equals("PD") || command.equals("PG")) {
                     print(command);
-                }else {
+                }else if(command.equals("A") || command.equals("D") || command.equals("L") || command.equals("R") ){
                     title = st.nextToken();
                     artist = st.nextToken();
                     if (command.equals("A")) { //add
@@ -42,9 +42,10 @@ public class CollectionManager {
                         lend();
                     } else if (command.equals("R")) { //return
                         deposit();
-                    } else {
-                        System.out.println("Invalid command!");
                     }
+                }
+                else {
+                    System.out.println("Invalid command!");
                 }
             }
             scanner = new Scanner(System.in);
