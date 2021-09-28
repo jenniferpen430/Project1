@@ -42,14 +42,36 @@ public class Date implements Comparable<Date> {
         Date date0 = new Date("05/12/979");
         System.out.println("this date is " + date0.isValid());
 
-        Date date1 = new Date("9/19/2001");
+        Date date1 = new Date("2/29/2019");
         System.out.println("this date is " + date1.isValid());
 
-        Date date2 = new Date("10/25/2022");
+        Date date2 = new Date("2/29/2020");
         System.out.println("this date is " + date2.isValid());
 
-        Date date3 = new Date("04/23/2020");
+        Date date3 = new Date("03/1/2025");
         System.out.println("this date is " + date3.isValid());
+
+        Date date4 = new Date("02/34/2021");
+        System.out.println("this date is " + date4.isValid());
+
+        Date date5 = new Date("13/22/2020");
+        System.out.println("this date is " + date5.isValid());
+
+        Date date6 = new Date("0/34/2021");
+        System.out.println("this date is " + date6.isValid());
+
+        Date date7 = new Date("09/31/2020");
+        System.out.println("this date is " + date7.isValid());
+
+        Date date8 = new Date("09/0/2020");
+        System.out.println("this date is " + date8.isValid());
+
+        Date date9 = new Date("11/1/2021");
+        System.out.println("this date is " + date9.isValid());
+
+        Date date10 = new Date("09/28/2021");
+        System.out.println("this date is " + date10.isValid());
+
     }
 
     /**
