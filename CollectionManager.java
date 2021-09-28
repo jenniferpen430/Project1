@@ -27,22 +27,24 @@ public class CollectionManager {
             }else {
                 StringTokenizer st = new StringTokenizer(line, ",", false);
                 command = st.nextToken();
-                title = st.nextToken();
-                artist = st.nextToken();
-                if (command.equals("A")) { //add
-                    genre = st.nextToken();
-                    date = st.nextToken();
-                    adding();
-                } else if (command.equals("D")) { //remove
-                    remove();
-                } else if (command.equals("L")) { //lend
-                    lend();
-                } else if (command.equals("R")) { //return
-                    deposit();
-                } else if (command.equals("P") || command.equals("PD") || command.equals("PG")) {
+                if (command.equals("P") || command.equals("PD") || command.equals("PG")) {
                     print(command);
-                }else{
-                    System.out.println("Invalid command!");
+                }else {
+                    title = st.nextToken();
+                    artist = st.nextToken();
+                    if (command.equals("A")) { //add
+                        genre = st.nextToken();
+                        date = st.nextToken();
+                        adding();
+                    } else if (command.equals("D")) { //remove
+                        remove();
+                    } else if (command.equals("L")) { //lend
+                        lend();
+                    } else if (command.equals("R")) { //return
+                        deposit();
+                    } else {
+                        System.out.println("Invalid command!");
+                    }
                 }
             }
             scanner = new Scanner(System.in);
