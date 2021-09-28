@@ -51,7 +51,7 @@ public class CollectionManager {
         System.out.println("Collection Manager terminated.");
     }
 
-    public void adding(Album album){
+    public void adding(){
         String readableGenre = genre.substring(0,1).toUpperCase()+genre.substring(1).toLowerCase();
         Album album = new Album(title, artist, readableGenre, date);
         if(!Genre.includes(readableGenre)){
