@@ -10,6 +10,11 @@ import java.util.StringTokenizer;
  */
 public class CollectionManager {
     private Collection collection;
+    private String genre;
+    private String date;
+    private String command;
+    private String title;
+    private String artist;
 
     public void run() {
         System.out.println("Collection Manager starts running.");
@@ -21,22 +26,18 @@ public class CollectionManager {
                 System.out.println("Invalid command!");
             }else {
                 StringTokenizer st = new StringTokenizer(line, ",", false);
-                String command = st.nextToken();
-                String title = st.nextToken();
-                String artist = st.nextToken();
+                command = st.nextToken();
+                title = st.nextToken();
+                artist = st.nextToken();
                 if (command.equals("A")) { //add
-                    String genre = st.nextToken();
-                    String date = st.nextToken();
-                    Album album = new Album(title, artist, readableGenre, date);
-                    adding(album);
+                    genre = st.nextToken();
+                    date = st.nextToken();
+                    adding();
                 } else if (command.equals("D")) { //remove
-                    Album album = new Album(title, artist);
                     remove(album);
                 } else if (command.equals("L")) { //lend
-                    Album album = new Album(title, artist);
                     lend(album);
                 } else if (command.equals("R")) { //return
-                    Album album = new Album(title, artist);
                     deposit(album);
                 } else if (command.equals("P") || command.equals("PD") || command.equals("PG")) {
                     print(command);
@@ -52,6 +53,7 @@ public class CollectionManager {
 
     public void adding(Album album){
         String readableGenre = genre.substring(0,1).toUpperCase()+genre.substring(1).toLowerCase();
+        Album album = new Album(title, artist, readableGenre, date);
         if(!Genre.includes(readableGenre)){
             readableGenre = "Unknown";
         }
@@ -66,28 +68,31 @@ public class CollectionManager {
             }
         }
     }
-    public void remove(Album album){
+    private void remove(){
+        Album album = new Album(title, artist);
         if (collection.remove(album)) {
             System.out.println(title + "::" + artist + " >> deleted.");
         } else {
             System.out.println(title + "::" + artist + " >> is not in the collection");
         }
     }
-    public void lend(Album album){
+    private void lend(){
+        Album album = new Album(title, artist);
         if (collection.lendingOut(album)) {
             System.out.println(title + "::" + artist + " >> lending out and set to not available.");
         } else {
             System.out.println(title + "::" + artist + " >> is not available.");
         }
     }
-    public void deposit(Album album){
+    private void deposit(){
+        Album album = new Album(title, artist);
         if (collection.returnAlbum(album)) {
             System.out.println(title + "::" + artist + " >> returning and set to available.");
         } else {
             System.out.println(title + "::" + artist + " >> return  cannot  be completed.");
         }
     }
-    public void print(String command){
+    private void print(String command){
         if (command.equals("P"){
             collection.print();
         } else if(command.equals("PD")) {
